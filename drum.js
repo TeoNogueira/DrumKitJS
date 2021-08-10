@@ -11,9 +11,15 @@ let song = document.querySelector('#input').value;
 
 console.log('Música', song)
 
+if(song !== '') {
+
+    let songArray = song.split('')
+
+    // console.log(songArray)
+    playComposition(songArray)
+}
 
 })
-
 
 
 function playSound(sound) {
@@ -37,9 +43,33 @@ setTimeout(() => {
 keyElement.classList.remove('active')
 
 }, 200)
+}
+}
 
+
+function playComposition(songArray) {
+
+// break loop
+let wait = 0;
+
+for(let songItem of songArray) {
+
+    setInterval(() => {
+
+             //looping
+    playSound(`key${songItem}`) //os digitos entrarão aqui somado ao KEY ex: a s d z x c etc.. 
+
+    }, wait)
+
+    wait += 250;
+     
 }
 
 }
 
-
+// tag audio
+// event
+// string in array
+// currentTime 0
+// play()
+// split('')
